@@ -13,7 +13,9 @@ const router = Router();
 router.get('/', getMedicos);
 
 router.post('/', [
-    
+    validarJWT,
+    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+    validarCampos
 ],postMedico);
 
 router.put('/:id', [
