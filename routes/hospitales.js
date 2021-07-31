@@ -16,12 +16,16 @@ router.post('/', [
     validarJWT,
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     validarCampos
-],postHospital);
+], postHospital);
 
 router.put('/:id', [
-    
+    validarJWT,
+    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+    validarCampos
 ], putHospital);
 
-router.delete('/:id', deleteHospital);
+router.delete('/:id',
+    validarJWT,
+deleteHospital);
 
 module.exports = router;
